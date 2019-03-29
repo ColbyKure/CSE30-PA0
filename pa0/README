@@ -1,0 +1,194 @@
+/*
+ * Filename: README
+ * Author: Colby Kure
+ * Userid: cs30xdc
+ * Date: 4/11/18
+ * Sources of help: lecture and discussion notes
+ */
+
+-------------------------------------------------------------------------------
+Description:
+This program prints out the first 15 odd numbers to the terminal in
+increasing reversed and then increasing order, then finds the sum of 
+3 numbers and prints the resultant equation to terminal
+-------------------------------------------------------------------------------
+How to compile:
+Navigate to directory with pa0 files, which should also include Makefile. 
+type 'make' into the terminal and it runs the Makefiles, which has all 
+the code to compile the program
+-------------------------------------------------------------------------------
+How to run:
+Just type './a.out' into the terminal to run. There are no parameters to
+input from the beginning.
+-------------------------------------------------------------------------------
+Normal output:
+-cluster-020:~/pa0$ ./a.out
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+25
+27
+29
+
+29
+27
+25
+23
+21
+19
+17
+15
+13
+11
+9
+7
+5
+3
+1
+
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+25
+27
+29
+
+The sum of 5 + 15 + 32 = 52
+-------------------------------------------------------------------------------
+Abnormal output: 
+There is no abnormal output the output is hard coded in to print 
+the same thing everytime
+-------------------------------------------------------------------------------
+Testing:
+The program must output the same thing everytime so to test it I piped the 
+output of my program and the given solution program and diff'ed the 
+files. Made sure each of the methods  worked correctly by stepping
+through the code with gdb.
+-------------------------------------------------------------------------------
+Question 0:
+A student is in violation becasue he/she is submitting work not created
+by him/herself. 
+-------------------------------------------------------------------------------
+Question 1:
+pa0.c line 47 error: expected ';' before '}' token
+fixed it by adding a semicolon at the end of line 45
+
+pa0.c line 65 error: expected decleration or statement at end of input
+fixed it by adding a closing curly brace at the end of the file (line 66)
+
+printInOrder.c line 27 error: implicit declaration of function 'fprintf'
+fixed it by adding #include <stdio.h> to top of file
+-------------------------------------------------------------------------------
+Question 2:
+gdb stuck at initArray method
+fixed it by incrementing i in while loop
+
+printReversed.c line 27 error: seg fault
+fixed it by decrementing instead of incrementing the loop counter, i
+
+printInOrder.c line 25 erorr: printing wrong value
+fixed it by removed unessesary semicolon
+
+sum3.s line 48 error: printing wrong sum
+fixed it by swaping r0 and r3 in mov function
+
+pa0.c line 63 error: printing wrong variable values
+fixed it by changing to correct variables
+-------------------------------------------------------------------------------
+Question 3:
+Starting program: /home/linux/ieng6/cs30x/cs30xdc/pa0/a.out 
+
+Breakpoint 1, main () at pa0.c:34
+34	  int v1 = FIRST_NUM_TO_SUM;
+-------------------------------------------------------------------------------
+Question 4:
+nexti will execute the next instruction which is the first instruction after 
+main. That is line 33: 
+	int i;
+Thus, nexti executes line 33, which is the line before line 34, which was 
+printed prior to nexti. Line 34 is the first meaningful intrustion, but line 33
+is the correct first line to execute.
+-------------------------------------------------------------------------------
+Question 5:
+Now in sum3() funstion
+-------------------------------------------------------------------------------
+Question 6:
+p $r3 
+$1 = 0
+prints the contents of register r3, which is 0
+-------------------------------------------------------------------------------
+Question 7:
+now is shows:
+	$2 = 0
+-------------------------------------------------------------------------------
+Question 8:
+value of r1 is 15
+2 ways to print contents or r1:
+	p $r1
+	i r
+-------------------------------------------------------------------------------
+Question 9:
+The variable sum has value 0x00010700
+-------------------------------------------------------------------------------
+Question 10:
+The address of the last element in the array is
+with input: p/x &intArray[14]
+get output: 0x7efffb30
+-------------------------------------------------------------------------------
+Question 11:
+The first 2 parameters since they are on  the top of the stack
+-------------------------------------------------------------------------------
+Question 12:
+0x00105cc does not point to anything. 
+-------------------------------------------------------------------------------
+Question 13:
+A breakpoint is a marker in the program where gdb stops when the program is 
+continue'd. set it with:
+	break executable filename
+-------------------------------------------------------------------------------
+Question 14:
+debugging function: foobar
+-------------------------------------------------------------------------------
+Question 15:
+step goes into functions, next just executes the next line.
+-------------------------------------------------------------------------------
+Question 16:
+They are the derefferenced values of the registers, so the registers should 
+contain memory addresses and the value that those memory addresses point to 
+are what would be printed. 
+-------------------------------------------------------------------------------
+Question 17:
+this code will print ascii char:
+	printf("%c", n);
+-------------------------------------------------------------------------------
+Question 18:
+Use line to print hex:
+	printf("%x", n);
+-------------------------------------------------------------------------------
+Question 19:
+	(void)fprintf(stderr, "%s %d %c %f", rocks, value, plus, thirty);
+-------------------------------------------------------------------------------
+Question 20:
+	printf("The size of char: %d\n", sizeof(char));
+	printf("The size of short: %d\n", sizeof(short));
+	printf("The size of int: %d\n", sizeof(int));
+	printf("The size of long: %d\n", sizeof(long));
+	printf("The size of float: %d\n", sizeof(float));
